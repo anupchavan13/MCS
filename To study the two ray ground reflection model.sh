@@ -1,0 +1,16 @@
+clc; clear all;
+d=input('Enter the distance between transmitter and receiver:' ); 
+pt=input('Enter the power of transmitter:');
+Gt=input('Enter the Gain of transmitter:');
+Gr=input('Enter the Gain of receiver:'); 
+F=input('Enter the freq.:');
+Rr=input('Enter the receiver impedance:'); 
+c=3*10^8;
+lam=c/F; disp(lam);
+Pr=(pt*Gt*Gr*lam^2)/(4*%pi*d)^2; 
+Prdb=10*log10(Pr); 
+E=sqrt((Pr*480*%pi)/(Gr*lam^2)); 
+V=sqrt(Pr*4*Rr);
+disp('Received power is ',Prdb); 
+disp('Magnitude of E-Field ',E); 
+disp('The RMS voltage is ',V);
